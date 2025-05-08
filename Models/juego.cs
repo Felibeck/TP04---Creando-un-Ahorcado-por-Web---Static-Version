@@ -1,17 +1,23 @@
 namespace TP04_Ahorcado;
-public class juego{
-    public string palabra {get; private set;} 
-    public int intentos {get; private set;} 
-    public string palabraVacia {get; private set;}
+static public class juego{
+    static public string palabra {get; private set;} 
+    static public int intentos {get; private set;} 
+    static public string palabraVacia {get; private set;}
+    static public List<char> letrasUsadas {get; private set;}
+    static public bool gano {get; private set;}
+    static public int errores {get; private set;}
+    //falta hacer un while que mientas el contador de errores (este cuenta la cantidad de veces que el metodo comprobarletra dio false) no llegue a 6, el bool gano sea true. Si pasa de 6 es false, el usuario pierde el juego 
 
-
-    public juego(string palabra, int intentos, string palabraVacia)
+    static public void inicializarJuego()
     {
-        this.palabra = "CASA";
-        this.intentos = intentos;
-        this.palabraVacia = "____";
+        palabra = "CASA";
+        intentos = 0;
+        palabraVacia = "____";
+        letrasUsadas = new List<char>();
+        gano = true;
     }
-    public bool comprobarLetra(char letra)
+    
+     static public bool comprobarLetra(char letra)
 {
     bool aux = false;
     char[] arrayPalabraVacia = palabraVacia.ToCharArray();
@@ -27,7 +33,7 @@ public class juego{
     return aux;
 }
 
-    public bool comprobarPalabra(string Palabra)
+     static public bool comprobarPalabra(string Palabra)
     {
         bool aux = false;
 
