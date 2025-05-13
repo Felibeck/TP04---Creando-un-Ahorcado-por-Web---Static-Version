@@ -1,0 +1,13 @@
+<main>
+    <h3>@ViewBag.palabraVacia</h3>
+
+    <form Action='@Url.Action("Juego", "Home")' method="POST">
+
+        <input type="text" maxlenght="1" name="letra"/>
+        <input type ="submit" name="enviar" value="Arriesgar LETRA"/>
+
+        <input type="text" name="palabra"/>
+        <input type ="submit" name="enviar" value="Arriesgar PALABRA"/>
+
+    </form>
+</main>

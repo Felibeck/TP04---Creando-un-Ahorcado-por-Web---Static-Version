@@ -17,9 +17,24 @@ public class HomeController : Controller
     {
         return View();
     }
-    public IActionResult Juego()
+    public IActionResult Juego(char letra, string palabra)
     {
-        ViewBag.letra = 
+        juego.inicializarJuego();
+        ViewBag.palabraVacia = juego.palabraVacia;
+        ViewBag.letrasUsadas = juego.letrasUsadas;
+
+        bool aux = juego.comprobarLetra(letra);
+        if (aux == false) {
+            juego.errores++;
+        }
+        bool aux2 = juego.comprobarPalabra(palabra);
+        if (aux2 == false){
+            juego.errores = 7;
+        }
+        
+        ViewBag.errores = juego.errores;
+
         return View();
     }
+
 }
