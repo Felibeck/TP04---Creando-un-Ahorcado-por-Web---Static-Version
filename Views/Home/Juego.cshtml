@@ -1,0 +1,24 @@
+<main>
+
+    <h3>@ViewBag.palabraVacia</h3>
+    <h3>@ViewBag.errores</h3>
+
+    <ul>
+    @foreach(char i in @ViewBag.letrasUsadas)
+    {
+        
+            <li>@i</li>
+        
+    }
+    </ul>
+
+    <form Action='@Url.Action("Jugar", "Home")' method="POST" enctype="multipart/form-data">
+
+        <input type="text" maxlength="1" name="letra" placeholder="Arriesgar Letra"/>
+        <input type ="submit" name="enviar" value="Arriesgar"/>
+
+        <input type="text" name="palabra" placeholder="Arriesgar Palabra"/>
+        <input type ="submit" name="enviar" value="Arriesgar"/>
+
+    </form>
+</main>

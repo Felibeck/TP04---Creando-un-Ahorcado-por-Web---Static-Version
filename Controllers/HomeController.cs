@@ -19,7 +19,38 @@ public class HomeController : Controller
     }
     public IActionResult Juego()
     {
-        ViewBag.letra = 
+        juego.inicializarJuego();
+        ViewBag.palabraVacia = juego.palabraVacia;
+        ViewBag.letrasUsadas = juego.letrasUsadas;
+        ViewBag.errores = juego.errores;
+
         return View();
     }
+    public IActionResult Jugar(char letra, string palabra)
+    {
+        bool aux = true;
+        if(palabra != null)
+        {
+            aux = juego.comprobarPalabra(palabra);
+            if (!aux) return View("Perder"); else return View("Ganar");
+        }
+
+       
+        letra = Char.ToUpper(letra);
+        if(letra != null)
+        {
+            juego.comprobarLetra(letra);
+        } 
+        if(juego.errores < 6 && juego.palabraVacia != juego.palabra)
+        {
+        ViewBag.letrasUsadas = juego.letrasUsadas;
+        ViewBag.errores = juego.errores;
+        ViewBag.palabraVacia = juego.palabraVacia;
+        return View("Juego");
+        }else if(juego.errores > 6){
+            return View("Perder");
+        }
+        else return View("Ganar");
+    }
+
 }
