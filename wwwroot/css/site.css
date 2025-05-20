@@ -4,7 +4,8 @@ html {
 }
 
 *{
-  
+  margin:0;
+  padding:0;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -31,11 +32,15 @@ footer {
 
 header h1
 {
-  text-align: center;
+    display: inline-block;
+  margin-left:44.5%;
   font-size: 40px;
 
 }
-
+header a{
+  color:black;
+  text-decoration: none;
+}
 /* From Uiverse.io by chase2k25 */ 
 .button {
   border: none;
@@ -57,6 +62,7 @@ header h1
   cursor: pointer;
   background-color: transparent;
   transform: translateY(6px);
+  margin-left:45%;
 }
 
 .button:after {
@@ -262,4 +268,54 @@ header h1
 
 .text {
   transition: all 0.5s ease-in-out;
+}
+
+
+ #preguntas{
+  margin-left:32%;
+}
+form input{
+  width: 50%;
+  padding:0.5%;
+  border-radius:10px;
+  border-color:grey;
+}
+.form-arriesga{
+  width:10%;
+  background-color: turquoise;
+  border-color: #212121;
+}
+
+#div1{
+  margin-bottom:1%;
+}
+
+.info-juego{
+  text-align: center;
+  font-size: 50px;
+  margin-top:4%;
+}
+
+#lista-letras-usadas{
+  font-size: 35px;
+  list-style-type: none;
+  margin-left: 45%;
+  color:red;
+  margin-bottom:1%;
+  margin-top:1%;
+}
+
+#h1-game-over{
+  margin-left:42.5%;
+  margin-top:4%;
+  font-size:50px;
+  color:red;
+  border:3px solid black;
+  border-radius: 15px;
+  display: inline-block;
+  
+}
+
+#h1-texto-ganar{
+  margin-left
 }

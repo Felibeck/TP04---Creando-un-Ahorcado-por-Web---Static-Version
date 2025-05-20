@@ -28,6 +28,13 @@ public class HomeController : Controller
     }
     public IActionResult Jugar(char letra, string palabra)
     {
+        if(letra == '\0' && palabra == null){
+            ViewBag.letrasUsadas = juego.letrasUsadas;
+            ViewBag.errores = juego.errores;
+            ViewBag.palabraVacia = juego.palabraVacia;
+
+        return View("Juego");
+        }
         bool aux = true;
         if(palabra != null)
         {
@@ -46,6 +53,7 @@ public class HomeController : Controller
         ViewBag.letrasUsadas = juego.letrasUsadas;
         ViewBag.errores = juego.errores;
         ViewBag.palabraVacia = juego.palabraVacia;
+
         return View("Juego");
         }else if(juego.errores > 6){
             return View("Perder");

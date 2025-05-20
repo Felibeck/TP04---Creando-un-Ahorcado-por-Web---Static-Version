@@ -1,24 +1,32 @@
 <main>
 
-    <h3>@ViewBag.palabraVacia</h3>
-    <h3>@ViewBag.errores</h3>
-
-    <ul>
-    @foreach(char i in @ViewBag.letrasUsadas)
+    <h3 class="info-juego">
+    @foreach(char i in ViewBag.palabraVacia)
     {
-        
-            <li>@i</li>
+            @(i + " ");
         
     }
+    </h3>
+    <h3 class="info-juego">@ViewBag.errores</h3>
+
+    <ul id="lista-letras-usadas">
+    <li>
+    @foreach(char i in @ViewBag.letrasUsadas)
+    {
+        @i
+    }
+    </li>
     </ul>
 
-    <form Action='@Url.Action("Jugar", "Home")' method="POST" enctype="multipart/form-data">
+    <form Action='@Url.Action("Jugar", "Home")' method="POST" enctype="multipart/form-data" id="preguntas">
 
+        <div id="div1">
         <input type="text" maxlength="1" name="letra" placeholder="Arriesgar Letra"/>
-        <input type ="submit" name="enviar" value="Arriesgar"/>
+        <input type ="submit" name="enviar" value="Arriesgar" class="form-arriesga"/>
+        </div>
 
         <input type="text" name="palabra" placeholder="Arriesgar Palabra"/>
-        <input type ="submit" name="enviar" value="Arriesgar"/>
+        <input type ="submit" name="enviar" value="Arriesgar" class="form-arriesga"/>
 
     </form>
 </main>
