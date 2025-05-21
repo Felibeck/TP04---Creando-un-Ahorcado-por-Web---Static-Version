@@ -36,9 +36,10 @@ public class HomeController : Controller
         return View("Juego");
         }
         bool aux = true;
-        if(palabra != null)
+
+        if (palabra != null)
         {
-            aux = juego.comprobarPalabra(palabra);
+            aux = juego.comprobarPalabra(palabra.ToUpper());
             if (!aux) return View("Perder"); else return View("Ganar");
         }
 
