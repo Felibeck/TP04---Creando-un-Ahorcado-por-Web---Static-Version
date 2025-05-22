@@ -19,19 +19,24 @@ public class HomeController : Controller
     }
     public IActionResult Juego()
     {
-        juego.inicializarJuego();
-        ViewBag.palabraVacia = juego.palabraVacia;
-        ViewBag.letrasUsadas = juego.letrasUsadas;
-        ViewBag.errores = juego.errores;
+        juego ahorcado = new juego();
+        ahorcado.inicializarJuego();
+        HttpContext.Session.SetString("ahorcado", Objeto.ObjectToString(ahorcado));
+        
+
+        ViewBag.palabraVacia = ahorcado.palabraVacia;
+        ViewBag.letrasUsadas = ahorcado.letrasUsadas;
+        ViewBag.errores = ahorcado.errores;
 
         return View();
     }
     public IActionResult Jugar(char letra, string palabra)
     {
+        juego ahorcado = Objeto.StringToObject<juego>(HttpContext.Session.GetString("ahorcado"));
         if(letra == '\0' && palabra == null){
-            ViewBag.letrasUsadas = juego.letrasUsadas;
-            ViewBag.errores = juego.errores;
-            ViewBag.palabraVacia = juego.palabraVacia;
+            ViewBag.letrasUsadas = ahorcado.letrasUsadas;
+            ViewBag.errores = ahorcado.errores;
+            ViewBag.palabraVacia = ahorcado.palabraVacia;
 
         return View("Juego");
         }
@@ -39,7 +44,7 @@ public class HomeController : Controller
 
         if (palabra != null)
         {
-            aux = juego.comprobarPalabra(palabra.ToUpper());
+            aux = ahorcado.comprobarPalabra(palabra.ToUpper());
             if (!aux) return View("Perder"); else return View("Ganar");
         }
 
@@ -47,19 +52,20 @@ public class HomeController : Controller
         letra = Char.ToUpper(letra);
         if(letra != null)
         {
-            juego.comprobarLetra(letra);
+            ahorcado.comprobarLetra(letra);
         } 
-        if(juego.errores < 6 && juego.palabraVacia != juego.palabra)
+        if(ahorcado.errores < 6 && ahorcado.palabraVacia != ahorcado.palabra)
         {
-        ViewBag.letrasUsadas = juego.letrasUsadas;
-        ViewBag.errores = juego.errores;
-        ViewBag.palabraVacia = juego.palabraVacia;
-
+        ViewBag.letrasUsadas = ahorcado.letrasUsadas;
+        ViewBag.errores = ahorcado.errores;
+        ViewBag.palabraVacia = ahorcado.palabraVacia;
+        HttpContext.Session.SetString("ahorcado", Objeto.ObjectToString(ahorcado));
         return View("Juego");
-        }else if(juego.errores > 6){
+        }else if(ahorcado.errores > 6){
             return View("Perder");
         }
         else return View("Ganar");
+        
     }
 
 }
