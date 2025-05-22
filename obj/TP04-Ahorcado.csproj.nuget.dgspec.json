@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Feli\\Desktop\\TP04---Creando-un-Ahorcado-por-Web---Static-Version\\TP04-Ahorcado.csproj": {}
+    "C:\\Users\\49255481\\TP04---Creando-un-Ahorcado-por-Web---Static-Version\\TP04-Ahorcado.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Feli\\Desktop\\TP04---Creando-un-Ahorcado-por-Web---Static-Version\\TP04-Ahorcado.csproj": {
+    "C:\\Users\\49255481\\TP04---Creando-un-Ahorcado-por-Web---Static-Version\\TP04-Ahorcado.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Feli\\Desktop\\TP04---Creando-un-Ahorcado-por-Web---Static-Version\\TP04-Ahorcado.csproj",
+        "projectUniqueName": "C:\\Users\\49255481\\TP04---Creando-un-Ahorcado-por-Web---Static-Version\\TP04-Ahorcado.csproj",
         "projectName": "TP04-Ahorcado",
-        "projectPath": "C:\\Users\\Feli\\Desktop\\TP04---Creando-un-Ahorcado-por-Web---Static-Version\\TP04-Ahorcado.csproj",
-        "packagesPath": "C:\\Users\\Feli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Feli\\Desktop\\TP04---Creando-un-Ahorcado-por-Web---Static-Version\\obj\\",
+        "projectPath": "C:\\Users\\49255481\\TP04---Creando-un-Ahorcado-por-Web---Static-Version\\TP04-Ahorcado.csproj",
+        "packagesPath": "C:\\Users\\49255481\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\49255481\\TP04---Creando-un-Ahorcado-por-Web---Static-Version\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Feli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\49255481\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +48,16 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
+            "NewtonSoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -63,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
